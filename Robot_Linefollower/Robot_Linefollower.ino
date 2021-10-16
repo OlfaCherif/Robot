@@ -1,3 +1,8 @@
+//This code is the program of an autonomous robot which contains differents types of sensors and actuators
+// Ultrasound sensor HC-SR04 to make the robot detects obstacle to stop
+// color detector sensor to make it follow the right path
+// 2 engines to control the wheels of the robot
+
 // Analog pins
 #define D A0 // The right sensor 
 #define G A1 // The left sensor
@@ -173,9 +178,8 @@ void correction()
 
 
 
-void suiveur()
-{        
-      
+void followpath()
+{       
              
     if  ( g==0 && m==0 && d==1 && cd==0)
     {
@@ -293,7 +297,7 @@ void Demitour()
 
 
 
-void labyrinthe ()
+void maze ()
 {
 
  //This code make the robot chose a priority to exit the Maze. 
@@ -455,9 +459,9 @@ cg=digitalRead(CG);
 cd=digitalRead(CD);
 
 if (etat==0)
-  {suiveur ();}
+  {followpath ();}
 else 
-  {labyrinthe ();}
+  {maze ();}
 
 combinaison();
 obstacle();
